@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>컴퓨터그래픽스 과제</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        // vertex shader
+        attribute vec4 vPosition;
+        void main() {
+            gl_Position = vPosition;
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        // fragment shader
+        precision mediump float;
+        uniform vec4 uColor;
+        void main() {
+            gl_FragColor = uColor;
+        }
+    </script>
+
+    <script src="Common/webgl-utils.js"></script>
+    <script src="Common/initShaders.js"></script>
+    <script src="Common/MV.js"></script>
+    <script src="carpet.js"></script>
+</head>
+<body>
+    <h2>Sierpinski Carpet</h2>
+    
+    <canvas id="gl-canvas" width="500" height="500">
+        canvas 지원 안됨
+    </canvas>
+    <br><br>
+
+    <div>
+        단계: <input type="range" id="slider" min="0" max="5" value="3">
+        <span id="depthText">3</span>
+    </div>
+    <br>
+    <div>
+        색상: <input type="color" id="color" value="#00ff00">
+    </div>
+</body>
+</html>
